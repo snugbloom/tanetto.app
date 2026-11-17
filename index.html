@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tanetto · Small habits, big trips.</title>
+<meta name="description" content="Tanetto: your small daily habits, a little friend who cheers for you, and trips around the world. On Google Play, in 14 languages.">
+<link rel="icon" href="/favicon-32.png">
+<link rel="canonical" href="https://tanettoapp.github.io/Tanetto/">
+<meta property="og:title" content="Tanetto · Small habits, big trips.">
+<meta property="og:image" content="https://tanetto.app/og.png">
+<meta name="theme-color" content="#F6EFE4">
+<script>
+(function () {
+  var L = ["it","en","es","pt","fr","de","nl","pl","tr","ru","ja","ko"], base = "https://tanettoapp.github.io/Tanetto/";
+  var langs = (navigator.languages || [navigator.language || "en"]).map(function (s) { return String(s).toLowerCase(); });
+  var page = "en.html";
+  for (var i = 0; i < langs.length; i++) {
+    var l = langs[i], p = l.split("-")[0];
+    if (p === "zh") { page = /hant|tw|hk|mo/.test(l) ? "zh-hant.html" : "zh-hans.html"; break; }
+    if (L.indexOf(p) >= 0) { page = p + ".html"; break; }
+  }
+  location.replace(base + page + location.search);
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=https://tanettoapp.github.io/Tanetto/en.html"></noscript>
+<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#F6EFE4;color:#3A3128;font:16px/1.5 system-ui,sans-serif}a{color:#3E7A3A}</style>
+</head>
+<body><p><a href="https://tanettoapp.github.io/Tanetto/en.html">Tanetto</a></p></body>
+</html>

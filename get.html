@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tanetto on Google Play</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon-32.png">
+<style>
+:root{--bg:#F6EFE4;--ink:#3A3128;--muted:#7A6E62;--accent:#3E7A3A}
+@media (prefers-color-scheme:dark){:root{--bg:#1E1B17;--ink:#F3EBDD;--muted:#B9AD9C;--accent:#79B873}}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center}
+main{padding:24px 16px;max-width:420px}img{width:88px;height:88px;border-radius:22px}
+h1{font-size:1.5rem;margin:14px 0 18px}a.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:999px}
+a.sub{display:block;margin-top:14px;color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+<img src="/icon-192.png" alt="Tanetto" width="88" height="88">
+<h1>Tanetto</h1>
+<a class="btn" id="play" href="https://play.google.com/store/apps/details?id=com.tanettoapp.tanetto">Google Play</a>
+<a class="sub" id="web" href="https://tanettoapp.github.io/Tanetto/">iPhone: web</a>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), clean = function (v, d) { return (v || d).replace(/[^a-z0-9_.-]/gi, "").slice(0, 40) || d; };
+  var src = clean(q.get("utm_source") || q.get("src"), "sito"), med = clean(q.get("utm_medium"), "web"), camp = clean(q.get("utm_campaign"), "tanetto_app");
+  var ref = "utm_source=" + src + "&utm_medium=" + med + "&utm_campaign=" + camp;
+  var play = "https://play.google.com/store/apps/details?id=com.tanettoapp.tanetto&referrer=" + encodeURIComponent(ref);
+  var web = "https://tanettoapp.github.io/Tanetto/?src=" + encodeURIComponent(src);
+  document.getElementById("play").href = play; document.getElementById("web").href = web;
+  var ua = navigator.userAgent;
+  if (/android/i.test(ua)) location.replace(play);
+  else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) location.replace(web);
+})();
+</script>
+</body>
+</html>
